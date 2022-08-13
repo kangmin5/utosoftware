@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { CoinService } from "../services/coinService";
+import { CoinService } from "../services/CoinService";
 
 
 const coinService = new CoinService()
-const coinSlice = createSlice(coinService.createCoinSlice());
+const CoinSlice = createSlice(coinService.createCoinSlice());
 
 export const {
     saveCoinRequest,
@@ -11,9 +11,12 @@ export const {
     saveCoinFailure,
     fetchCoinRequest,
     fetchCoinSuccess,
-    fetchCoinFailure
-} = coinSlice.actions
+    fetchCoinFailure,
+    getCoinRequest,
+    getCoinSuccess,
+    getCoinFailure
+} = CoinSlice.actions;
 
-const { reducer, actions } = coinSlice;
-export const coinActions = actions;
+const { reducer, actions } = CoinSlice;
+export const CoinActions = actions;
 export default reducer;

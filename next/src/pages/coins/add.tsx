@@ -1,13 +1,12 @@
 import CoinAdd from '@/components/coins/CoinAdd'
-import CoinList from '@/components/coins/CoinList'
-import { saveCoinRequest } from '@/modules/slices/coinSlice'
+import { saveCoinRequest } from '@/modules/slices/CoinSlice'
 import { Coin } from '@/modules/types'
 import { NextPage } from 'next'
 import Router from 'next/router'
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 
-const CoinAddPage: NextPage = () => {
+const AddPage: NextPage = () => {
 
     const [coinData, setCoinData] = useState<Coin>({ market: '', tradePrice: 0, timestamp: '' })
     const dispatch = useDispatch();
@@ -19,7 +18,7 @@ const CoinAddPage: NextPage = () => {
     const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         dispatch(saveCoinRequest(coinData))
-        Router.push('/coins/coinList')
+        Router.push('/coins/list')
     }
   return (
       <div>
@@ -28,4 +27,4 @@ const CoinAddPage: NextPage = () => {
   )
 }
 
-export default CoinAddPage
+export default AddPage

@@ -1,6 +1,7 @@
 // import { Key } from "react";
 
 export interface Coin {
+
     // id: Key | null | undefined;
     coinid?: number; //코인id
     market?: string; //코인이름

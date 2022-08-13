@@ -1,4 +1,5 @@
 import { Coin } from '@/modules/types';
+import Link from 'next/link';
 import React, { FC } from 'react'
 
 export interface Props {
@@ -17,9 +18,9 @@ const CoinList:FC<Props> = ({datas}:Props) => {
             </tr>
         </thead>
         <tbody>
-              { datas.map((data,idx) =>
-                <tr key={idx}>
-                  <td>{data.market}</td>
+              { datas.map((data) =>
+                <tr key={data.coinid}>
+                  <td><Link href={`/coins/${data.coinid}`}><a>{data.market}</a></Link></td>
                   <td>{data.tradePrice}</td>
                   <td>{data.timestamp}</td>
                 </tr>

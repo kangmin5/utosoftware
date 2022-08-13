@@ -9,7 +9,7 @@ const initialState: UserState = {
     data: [],
     status: 'idle'
 }
-export const userSlice = createSlice({
+export const UserSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
@@ -30,7 +30,7 @@ export const userSlice = createSlice({
         }
     }
 })
-    const {reducer, actions} = userSlice
+    const {reducer, actions} = UserSlice
     export const userActions = actions
-    export const { fetchUsersRequest, fetchUsersSuccess, fetchUsersFailure, } = userSlice.actions;
+    export const { fetchUsersRequest, fetchUsersSuccess, fetchUsersFailure, } = UserSlice.actions;
     export default reducer;

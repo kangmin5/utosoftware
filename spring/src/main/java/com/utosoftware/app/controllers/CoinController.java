@@ -24,6 +24,8 @@ public class CoinController {
 
     @PostMapping("/save") @ResponseBody
     public void save(@RequestBody CoinDto coin){
+        System.out.println(" ################### ");
+        System.out.println("coin.toString() : "+coin.toString());  //에러 확인
         coinService.save(coin);
     }
     @GetMapping("/count") public MessengerVo count() {

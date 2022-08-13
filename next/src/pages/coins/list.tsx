@@ -1,15 +1,15 @@
 import CoinList from '@/components/coins/CoinList'
-import { coinController } from '@/modules/controllers/coinController';
+import { CoinController } from '@/modules/controllers/CoinController';
 import { Coin } from '@/modules/types';
 import { NextPage } from 'next';
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 
-const CoinListPage:NextPage = () => {
+const ListPage:NextPage = () => {
   const dispatch = useDispatch()
   const [data, setData] = useState<Coin[]>([]);
   useEffect(() => {
-    const coinApi = new coinController();
+    const coinApi = new CoinController();
     coinApi.readList().then(response => {
       setData(response);
     })
@@ -17,9 +17,9 @@ const CoinListPage:NextPage = () => {
 
   return (
     <div>
-      <CoinList datas={data}/>
+      <CoinList datas={data}  />
     </div>
   )
 }
 
-export default CoinListPage
+export default ListPage

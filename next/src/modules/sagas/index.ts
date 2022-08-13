@@ -1,7 +1,9 @@
 import { all, fork } from 'redux-saga/effects';
 
 import {
-    watchFetchCoinSaga
+  watchFetchCoinSaga,
+  watchSaveCoinSaga,
+  watchGetCoinSaga
 } from './coinSaga'
 
 
@@ -9,7 +11,7 @@ import {
 export default function* rootSaga() {
   yield all([
     fork(watchFetchCoinSaga),
-
-    
+    fork(watchSaveCoinSaga),
+    fork(watchGetCoinSaga)
   ]);
 }

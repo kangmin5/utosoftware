@@ -2,7 +2,7 @@ import { AnyAction, combineReducers, configureStore } from "@reduxjs/toolkit"
 import logger from 'redux-logger'
 import { HYDRATE } from "next-redux-wrapper"
 import createSagaMiddleware from "redux-saga"
-import coinReducer from './slices/coinSlice'
+import coinReducer from './slices/CoinSlice'
 import { TypedUseSelectorHook, useSelector } from "react-redux"
 import { createWrapper } from 'next-redux-wrapper'
 import rootSaga from "./sagas"

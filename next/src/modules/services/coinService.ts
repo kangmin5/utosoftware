@@ -25,7 +25,7 @@ export class CoinService {
       error: null,
     }; 
     return {
-      name: "coinSlice",
+      name: "coinService",
       initialState,
       reducers: {
         saveCoinRequest: (state: any, action: PayloadAction<Coin>) => {
@@ -34,10 +34,11 @@ export class CoinService {
           state.data = action.payload;
           state.status = "loading";
           console.log(
-            `코인저장 성공 - 리듀서 ${JSON.stringify(state.data)}`
+            `코인저장 Request ${JSON.stringify(state.data)}`
           );
         },
         saveCoinSuccess: (state: any, action: PayloadAction) => {
+          console.log(`코인 저장 Success`);
           state.status = "successed";
         },
         saveCoinFailure: (state: any, action: PayloadAction) => {
@@ -60,6 +61,20 @@ export class CoinService {
           console.log(`코인전체 불러오기 실패 - 리듀서`);
           state.error = payload;
           state.status = "failed";
+        },
+
+        getCoinRequest: (state: any, action: PayloadAction<Coin>) => {
+          state.data = action.payload;
+          state.status = "loading";
+          console.log(`getCoinRequest 성공+${state.data}`)
+        },
+        getCoinSuccess: (state: any, action:PayloadAction<Coin>) => {
+          state.data = action.payload;
+          state.status = "successed";
+        },
+        getCoinFailure: (state: any, action: PayloadAction<Coin>) => {
+          state.error = action.payload;
+          state.status = "failure";
         },
 
         deleteCoin: (state: any, action: PayloadAction<Coin>) => {
